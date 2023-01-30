@@ -2,7 +2,7 @@ library(tidyverse)
 library(tidymodels)
 library(lme4)
 library(brms)
-library(firatheme)
+# library(firatheme)
 library(ggokabeito)
 library(ggrepel)
 devtools::load_all(".")
@@ -22,7 +22,7 @@ rmse_lmer <- sqrt(mean((pplme - pupils$achievement)^2)) # 6.64
 rmse_lmer
 
 pupils |> 
-  mutate(pred = pp) |> 
+  mutate(pred = pplme) |> 
   group_by(primary_school_id, secondary_school_id) |> 
   summarise(y = mean(achievement), 
             pred = mean(pred),
